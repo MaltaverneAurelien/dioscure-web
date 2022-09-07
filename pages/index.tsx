@@ -1,52 +1,15 @@
-import { useState, useEffect } from 'react'
-import { supabase } from '../utils/supabaseClient'
-import Auth from '../components/Auth'
-import Account from '../components/Account'
-import type { Session } from '@supabase/supabase-js'
+import Navbar from '../components/Navbar'
+import SessionContext from '../context/context'
+import { useContext } from 'react'
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true)
-  const [session, setSession] = useState<Session | null>(null)
-
-  useEffect(() => {
-    let mounted = true
-
-    async function getInitialSession() {
-      const {
-        data: { session },
-      } = await supabase.auth.getSession()
-
-      // only update the react state if the component is still mounted
-      if (mounted) {
-        if (session) {
-          setSession(session)
-        }
-
-        setIsLoading(false)
-      }
-    }
-
-    getInitialSession()
-
-    const response = supabase.auth.onAuthStateChange(
-      (_event, session) => {
-        setSession(session)
-      }
-    )
-
-    return () => {
-      mounted = false
-      response.data.subscription?.unsubscribe()
-    }
-  }, [])
+  const { session } = useContext(SessionContext)
 
   return (
-    <div className="container" style={{ padding: '50px 0 100px 0' }}>
-      {!session ? (
-        <Auth />
-      ) : (
-        <Account key={session.user.id} session={session} />
-      )}
-    </div>
-  )
+    <>
+        <title>{session?.user.user_metadata.nickname} - DioscureTV</title>
+        <link rel='icon' href='/favicon.ico' />
+        <Navbar />
+    </>
+  );
 }
