@@ -1,6 +1,7 @@
 import '../styles/globals.css'
-import { useState, useEffect } from 'react'
 import SessionContext from '../context/context'
+import Navbar from '../components/Navbar'
+import { useState, useEffect } from 'react'
 import { supabase } from '../utils/supabaseClient'
 import type { Session } from '@supabase/supabase-js'
 import type { AppProps } from 'next/app'
@@ -38,6 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   }, []);
   return (
     <SessionContext.Provider value={{session, isAdmin}}>
+      <Navbar />
       <Component {...pageProps} />
     </SessionContext.Provider>)
 }
