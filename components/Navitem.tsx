@@ -1,25 +1,33 @@
 import type { IconType } from "react-icons";
+import { useRouter } from "next/router";
 
 type Props = {
   href: string;
   icon: IconType;
   text: string;
-  active: boolean;
 };
 
 export default function NavItem(properties: Props) {
-  function showActive() {
-    return properties.active ? "" : "underline underline-offset-8";
-  }
+  const router = useRouter();
 
+  function showActive() {
+    if (properties.href === router.pathname) {
+      return properties.href ? "border-b-light_blue" : "";
+    }
+  }
   return (
     <>
-      <li className={"text-white px-5 " + showActive()}>
-        <a href={properties.href} className="flex items-center">
+      <a
+        href={properties.href}
+        className={
+          "text-white border-2 px-2 py-2 border-transparent " + showActive()
+        }
+      >
+        <li className="flex items-center">
           <properties.icon className="float-left mr-2" />
           {properties.text}
-        </a>
-      </li>
+        </li>
+      </a>
     </>
   );
 }
