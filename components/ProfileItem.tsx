@@ -2,10 +2,7 @@ import SessionContext from "../context/context";
 import Dropdown from "./Dropdown";
 import { useState, useContext } from "react";
 
-type Props = {
-};
-
-export default function ProfileItem(properties: Props) {
+export default function ProfileItem() {
   const { session } = useContext(SessionContext);
   const [dropdown, setDropdown] = useState(false);
 
@@ -17,7 +14,7 @@ export default function ProfileItem(properties: Props) {
       <div className="relative inline-block text-left">
         <button type="button" onClick={handleClick}>
           <img
-            src={session.user.user_metadata.avatar_url}
+            src={session?.user.user_metadata.avatar_url}
             className="w-12 rounded-full"
           />
         </button>
