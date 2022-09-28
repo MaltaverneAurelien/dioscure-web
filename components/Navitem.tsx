@@ -10,24 +10,29 @@ type Props = {
 export default function NavItem(properties: Props) {
   const router = useRouter();
 
-  function showActive() {
+  function activeBorder() {
     if (properties.href === router.pathname) {
-      return properties.href ? "border-b-light_blue" : "";
+      return "border-b-light_blue";
     }
-    // if (properties.icon === properties.href) {
-    //   return properties.icon ? "text-light_blue" : "";
-    // }
   }
+
+  function activeColor() {
+    if (properties.href === router.pathname) {
+      return "text-light_blue";
+    }
+  }
+
   return (
     <>
       <a
         href={properties.href}
         className={
-          "text-white border-2 px-2 py-2 border-transparent uppercase " + showActive()
+          "text-white border-2 px-2 py-2 border-transparent uppercase " +
+          activeBorder()
         }
       >
         <li className="flex items-center">
-          <properties.icon className="float-left mr-2" />
+          <properties.icon className={"float-left mr-2 " + activeColor()} />
           {properties.text}
         </li>
       </a>

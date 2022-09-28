@@ -2,23 +2,23 @@ import type { IconType } from "react-icons";
 
 type Props = {
   class?: string;
-  text: string;
   hover?: string;
   onClick?: () => void;
-  icon: IconType;
+  icon?: IconType;
+  children?: string;
 };
 
-export default function Button(properties: Props) {
+const Button = (properties: Props) => {
   return (
     <>
-      <button
-        id="content"
-        className="flex items-center px-4 py-1 text-sm text-white rounded-full bg-twitch_purple hover:bg-violet-800 focus:ring-1 focus:ring-white w-max whitespace-nowrap"
-        onClick={properties.onClick}
-      >
-        <properties.icon className="float-left mr-2 text-base" />
-        {properties.text}
+      <button className={"flex items-center px-4 py-1 text-sm text-white rounded-full w-max whitespace-nowrap " + properties.class} onClick={properties.onClick}>
+        {properties.icon !== undefined && (
+          <properties.icon className="float-left mr-2" />
+        )}
+        {properties.children}
       </button>
     </>
   );
-}
+};
+
+export default Button;

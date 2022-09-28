@@ -27,7 +27,7 @@ export default function Navbar() {
           <a href="/" className="flex items-center">
             <img src="/DioscureTV_logo.png" className="w-36" />
           </a>
-          <ul className="container flex flex-wrap items-center float-left ml-6 gap-4">
+          <ul className="container flex flex-wrap items-center float-left gap-4 ml-6">
             <NavItem href="/" icon={MdLiveTv} text="Live" />
             <NavItem href="/tournoi" icon={BsTrophy} text="Tournoi" />
             <NavItem href="/coaching" icon={FaDumbbell} text="Coaching" />
@@ -35,12 +35,14 @@ export default function Navbar() {
           </ul>
           {session === null && (
             <Button
-              text="Connexion avec Twitch"
+              class="bg-twitch_purple hover:bg-violet-800"
               icon={BsTwitch}
               onClick={() => {
                 signInWithTwitch();
               }}
-            />
+            >
+              Connexion avec Twitch
+            </Button>
           )}
           {session !== null && <ProfileItem />}
         </div>

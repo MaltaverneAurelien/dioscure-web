@@ -1,9 +1,15 @@
 import Head from "next/head";
+import React, { useRef } from "react";
 import SessionContext from "../context/context";
+import { TwitchEmbed, TwitchChat } from "react-twitch-embed";
 import { useContext } from "react";
 
 export default function Home() {
   const { session } = useContext(SessionContext);
+  const embed = useRef(); // We use a ref instead of state to avoid rerenders.
+  const handleReady = (e) => {
+    embed.current = e;
+  };
 
   return (
     <>
@@ -15,13 +21,26 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <section className="h-20 flex items-center">
-        <div className="flex ml-4 items-center text-white font-semibold gap-4">
-          <img
-            src={session?.user.user_metadata.avatar_url}
-            className="w-12 rounded-full"
-          /> Dioscure TV - Stream Rocket League
-        </div>
+      <div className="">
+        <div className="">Online</div>
+        <div className="">Offline</div>
+      </div>
+      <section className="flex mt-10 items-center h-auto">
+        <TwitchEmbed
+          className="flex items-center gap-4 ml-4 font-semibold text-white"
+          channel="dioscure"
+          autoplay
+          muted
+          withChat
+          darkMode={false}
+          hideControls
+          onVideoReady={handleReady}
+        />
+        <TwitchChat
+          className="flex items-center gap-4 ml-4 font-semibold text-white"
+          channel="dioscure"
+          darkMode
+        />
       </section>
     </>
   );
