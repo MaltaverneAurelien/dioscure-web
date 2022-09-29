@@ -21,7 +21,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="px-8 py-2 font-montserrat">
+      <nav className="px-8 py-2 font-montserrat bg-dark_blue shadow-sm shadow-gray-600">
         <div className="flex items-center justify-between mx-auto flex-nowrap">
           <a href="/" className="flex items-center">
             <img src="/DioscureTV_logo.png" className="w-36" />

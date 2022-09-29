@@ -42,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, []);
   return (
-    <div className="bg-dark_blue">
+    <div className="bg-no-repeat bg-center bg-cover aspect-video w-full bg-wave">
       <SessionContext.Provider value={{ session, isAdmin }}>
         <Navbar />
         <Component {...pageProps} />

@@ -27,7 +27,7 @@ export default function NavItem(properties: Props) {
       <a
         href={properties.href}
         className={
-          "text-white border-2 px-2 py-2 border-transparent uppercase " +
+          "text-white border-2 px-2 py-2 border-transparent uppercase hover:border-b-light_blue " +
           activeBorder()
         }
       >

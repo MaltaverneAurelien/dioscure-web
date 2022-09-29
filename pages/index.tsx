@@ -2,10 +2,16 @@ import Head from "next/head";
 import React, { useRef } from "react";
 import { TwitchEmbed, TwitchChat } from "react-twitch-embed";
 import Button from "../components/Button";
-import { AiFillPlaySquare } from "react-icons/ai";
+import LiveItem from "../components/Liveitem";
+// Import des react icons
+import { AiFillPlaySquare, AiFillStar } from "react-icons/ai";
+import { MdReplayCircleFilled } from "react-icons/md";
+import { IoGameController } from "react-icons/io5";
+import { AiFillHeart } from "react-icons/ai";
+import { BsDiscord } from "react-icons/bs";
 
 export default function Home() {
-  const embed = useRef(); // We use a ref instead of state to avoid rerenders.
+  const embed = useRef();
 
   const handleReady = (e) => {
     embed.current = e;
@@ -23,7 +29,7 @@ export default function Home() {
           rel="stylesheet"
         />
       </Head>
-      <div className="flex text-white container m-auto">
+      <div className="flex text-white container m-auto bg-medium_blue mt-5">
         <Button
           class="text-lg uppercase"
           icon={AiFillPlaySquare}
@@ -47,69 +53,22 @@ export default function Home() {
         />
         <TwitchChat channel="dioscure" height={600} width={300} darkMode />
       </section>
-      <section className="flex text-white container m-auto h-auto">
-        <ul className="flex container justify-center gap-20 py-8">
-          <li className="relative">
-            <Button
-              class="text-base uppercase"
-              iconClass="text-6xl p-4 bg-light_blue"
-              icon={AiFillPlaySquare}
-            >
-              Follow
-            </Button>
-            <p className="absolute left-20 top-9 text-xs">
-              Suis la chaîne pour ne rien manquer
-            </p>
-          </li>
-          <li className="relative">
-            <Button
-              class="text-base uppercase"
-              iconClass="text-6xl p-4 bg-light_blue"
-              icon={AiFillPlaySquare}
-            >
-              S'abonner
-            </Button>
-            <p className="absolute left-20 top-9 text-xs">
-              Abonne-toi et obtiens pleins d'avantages
-            </p>
-          </li>
-          <li className="relative">
-            <Button
-              class="text-base uppercase"
-              iconClass="text-6xl p-4 bg-light_blue"
-              icon={AiFillPlaySquare}
-            >
-              Replay
-            </Button>
-            <p className="absolute left-20 top-9 text-xs">
-              Accède aux rediffusions des lives
-            </p>
-          </li>
-          <li className="relative">
-            <Button
-              class="text-base uppercase"
-              iconClass="text-6xl p-4 bg-light_blue"
-              icon={AiFillPlaySquare}
-            >
-              Discord
-            </Button>
-            <p className="absolute left-20 top-9 text-xs">
-              Rejoins le discord et ne manque aucune actualité
-            </p>
-          </li>
-          <li className="relative">
-            <Button
-              class="text-base uppercase"
-              iconClass="text-6xl p-4 bg-light_blue"
-              icon={AiFillPlaySquare}
-            >
-              Dixper
-            </Button>
-            <p className="absolute left-20 top-9 text-xs">
-              Accède a Dixper pour intéragir avec Dioscure
-            </p>
-          </li>
-        </ul>
+      <section className="flex justify-center gap-7 container m-auto">
+        <LiveItem href="/" icon={AiFillHeart} text="Follow">
+          Suis la chaîne pour ne rien manquer
+        </LiveItem>
+        <LiveItem href="/" icon={AiFillStar} text="S'abonner">
+          Abonne-toi et obtiens pleins d'avantages
+        </LiveItem>
+        <LiveItem href="https://www.twitch.tv/dioscure/videos" icon={MdReplayCircleFilled} text="Replay">
+          Accède aux rediffusions des lives
+        </LiveItem>
+        <LiveItem href="https://discord.gg/9vSKPJUTN8" icon={BsDiscord} text="Discord">
+          Rejoins le discord et ne manque aucune actualité
+        </LiveItem>
+        <LiveItem href="https://dixper.gg/dioscure" icon={IoGameController} text="Dixper">
+          Accède a Dixper pour intéragir avec Dioscure
+        </LiveItem>
       </section>
     </>
   );
