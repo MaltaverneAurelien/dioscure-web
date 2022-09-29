@@ -9,7 +9,6 @@ import { BsTrophy, BsTwitch } from "react-icons/bs";
 import { FaDumbbell } from "react-icons/fa";
 import { MdLiveTv } from "react-icons/md";
 import { FiGift } from "react-icons/fi";
-import { AiOutlineHome } from "react-icons/ai";
 
 export default function Navbar() {
   const { session } = useContext(SessionContext);
@@ -22,7 +21,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="px-8 py-2 shadow-lg shadow-light_blue">
+      <nav className="px-8 py-2 font-montserrat">
         <div className="flex items-center justify-between mx-auto flex-nowrap">
           <a href="/" className="flex items-center">
             <img src="/DioscureTV_logo.png" className="w-36" />
@@ -35,7 +34,8 @@ export default function Navbar() {
           </ul>
           {session === null && (
             <Button
-              class="bg-twitch_purple hover:bg-violet-800"
+              class="rounded-full px-4 py-1 text-sm items-center whitespace-nowrap bg-twitch_purple hover:bg-violet-800"
+              iconClass="text-base"
               icon={BsTwitch}
               onClick={() => {
                 signInWithTwitch();

@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     } = await supabase.auth.getSession();
 
     if (session_err || session === null) {
-      return
+      return;
     }
 
     const { data, error: profile_err } = await supabase
@@ -42,10 +42,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, []);
   return (
-    <SessionContext.Provider value={{ session, isAdmin }}>
-      <Navbar />
-      <Component {...pageProps} />
-    </SessionContext.Provider>
+    <div className="bg-dark_blue">
+      <SessionContext.Provider value={{ session, isAdmin }}>
+        <Navbar />
+        <Component {...pageProps} />
+      </SessionContext.Provider>
+    </div>
   );
 }
 
