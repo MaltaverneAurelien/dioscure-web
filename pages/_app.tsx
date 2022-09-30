@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import SessionContext from "../context/context";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { useState, useEffect } from "react";
 import { supabase } from "../utils/supabaseClient";
 import type { Session } from "@supabase/supabase-js";
@@ -42,10 +43,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, []);
   return (
-    <div className="bg-no-repeat bg-center bg-cover aspect-video w-full bg-wave">
+    <div className="bg-no-repeat bg-center bg-cover aspect-video w-full bg-blob">
       <SessionContext.Provider value={{ session, isAdmin }}>
         <Navbar />
         <Component {...pageProps} />
+        <Footer />
       </SessionContext.Provider>
     </div>
   );

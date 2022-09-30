@@ -12,13 +12,13 @@ export default function NavItem(properties: Props) {
 
   function activeBorder() {
     if (properties.href === router.pathname) {
-      return "border-b-light_blue";
+      return "border-b-yellow";
     }
   }
 
   function activeColor() {
     if (properties.href === router.pathname) {
-      return "text-light_blue";
+      return "text-yellow";
     }
   }
 
@@ -27,7 +27,7 @@ export default function NavItem(properties: Props) {
       <a
         href={properties.href}
         className={
-          "text-white border-2 px-2 py-2 border-transparent uppercase hover:border-b-light_blue " +
+          "text-white border-2 px-2 py-2 border-transparent uppercase hover:border-b-yellow " +
           activeBorder()
         }
       >

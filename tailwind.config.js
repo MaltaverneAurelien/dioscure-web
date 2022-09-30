@@ -13,15 +13,16 @@ module.exports = {
         transparent: 'transparent',
         current: 'currentColor',
         'white': '#fffcf2',
-        'dark_blue': '#03071e',
-        'medium_blue': '#000019',
-        'light_blue': '#5498c8',
-        'dark_red': '#370617',
-        'light_red': '#9d0208',
+        'primary_blue': '#03071e',
+        'secondary_blue': '#232745',
+        'dark_blue': '#000D16',
+        'yellow': '#FBAE3C',
+        'orange': '#F17C53',
+        'red_purple': '#96446E',
         'twitch_purple': '#9147FF'
       },
       backgroundImage: {
-        'wave': "url('/background_waves.svg')",
+        'blob': "url('/background_blob.svg')",
       }
     }
   },
