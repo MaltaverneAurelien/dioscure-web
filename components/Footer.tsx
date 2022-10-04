@@ -1,8 +1,9 @@
+import FooterItem from "./FooterItem";
 // Import des react icons
-import { BsTrophy, BsTwitch } from "react-icons/bs";
-import { FaDumbbell } from "react-icons/fa";
-import { MdLiveTv } from "react-icons/md";
-import { FiGift } from "react-icons/fi";
+import { BsTwitch } from "react-icons/bs";
+import { SiDiscord } from "react-icons/si";
+import { AiOutlineYoutube } from "react-icons/ai";
+import { FiTwitter } from "react-icons/fi";
 
 export default function Footer() {
   return (
@@ -14,23 +15,22 @@ export default function Footer() {
             Suis-moi sur <span className="text-red_purple">mes réseaux</span>
           </p>
           <div className="flex gap-6 pb-5">
-            <BsTwitch className="text-white text-2xl cursor-pointer hover:text-orange" />
-            <BsTwitch className="text-white text-2xl cursor-pointer hover:text-orange" />
-            <BsTwitch className="text-white text-2xl cursor-pointer hover:text-orange" />
-            <BsTwitch className="text-white text-2xl cursor-pointer hover:text-orange" />
-            <BsTwitch className="text-white text-2xl cursor-pointer hover:text-orange" />
+            <FooterItem href="https://twitter.com/Dioscure_" icon={FiTwitter} />
+            <FooterItem href="https://www.youtube.com/c/Dioscure/videos" icon={AiOutlineYoutube} />
+            <FooterItem href="https://discord.gg/9vSKPJUTN8" icon={SiDiscord} />
+            <FooterItem href="https://www.twitch.tv/dioscure" icon={BsTwitch} />
           </div>
         </ul>
         <ul className="p-5">
           <p className="text-yellow font-bold text-2xl pb-4">Product</p>
           <li className="text-white text-md pb-2 font-semibold hover:text-orange cursor-pointer">
-            Stocks
+            Préférence sur les cookies
           </li>
           <li className="text-white text-md pb-2 font-semibold hover:text-orange cursor-pointer">
-            Mutual Funds
+            Me contacter
           </li>
-          <li className="text-white text-md pb-2 font-semibold hover:text-orange cursor-pointer">
-            Fixed Deposit
+          <li className="text-white text-xs pb-2 font-semibold hover:text-orange cursor-pointer">
+            © 2021-2022 DioscureTV. Tous droits réservés.
           </li>
         </ul>
       </footer>
