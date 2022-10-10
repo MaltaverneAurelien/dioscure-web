@@ -12,7 +12,7 @@ export default function NavItem(properties: Props) {
 
   function activeBorder() {
     if (properties.href === router.pathname) {
-      return "border-b-yellow";
+      return "text-yellow md:border-b-yellow";
     }
   }
 
@@ -27,11 +27,11 @@ export default function NavItem(properties: Props) {
       <a
         href={properties.href}
         className={
-          "text-white border-2 px-2 py-2 border-transparent uppercase hover:border-b-yellow " +
+          "text-white md:border-2 md:px-2 md:py-2 md:border-transparent md:uppercase md:hover:border-b-yellow md:hover:text-yellow " +
           activeBorder()
         }
       >
-        <li className="flex items-center">
+        <li className="flex items-center p-2">
           <properties.icon className={"float-left mr-2 " + activeColor()} />
           {properties.text}
         </li>

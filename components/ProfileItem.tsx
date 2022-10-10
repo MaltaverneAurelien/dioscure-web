@@ -11,7 +11,7 @@ export default function ProfileItem() {
   }
   return (
     <>
-      <div className="relative inline-block text-left">
+      <div className="md:relative md:inline-block md:text-left">
         <button type="button" onClick={handleClick}>
           <img
             src={session?.user.user_metadata.avatar_url}

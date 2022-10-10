@@ -17,7 +17,7 @@ export default function Live() {
   };
   return (
     <>
-      <div className="flex text-white container m-auto bg-secondary_blue mt-16">
+      <div className="bg-secondary_blue text-white md:flex md:justify-start md:mt-16">
         <Button
           class="text-lg uppercase"
           icon={AiFillPlaySquare}
@@ -26,13 +26,13 @@ export default function Live() {
           Dioscure - Offline
         </Button>
       </div>
-      <section className="container flex m-auto">
+      <section className="flex justify-center m-auto md:flex-row">
         <TwitchEmbed
           channel="dioscure"
-          width={1250}
-          height={600}
           autoplay={true}
           muted
+          width={1250}
+          height={600}
           allowFullscreen
           withChat={false}
           darkMode
@@ -41,7 +41,7 @@ export default function Live() {
         />
         <TwitchChat channel="dioscure" height={600} width={300} darkMode />
       </section>
-      <section className="flex justify-center gap-7 container m-auto py-10">
+      <section className="md:flex md:justify-center md:gap-7 md:container md:m-auto md:py-10">
         <LiveItem href="/" icon={AiFillHeart} text="Follow">
           Suis la chaîne pour ne rien manquer
         </LiveItem>
