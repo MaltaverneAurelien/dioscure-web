@@ -1,4 +1,4 @@
-import { TwitchEmbed, TwitchChat } from "react-twitch-embed";
+import { TwitchEmbed, TwitchChat, TwitchEmbedInstance } from "react-twitch-embed";
 import Button from "../components/Button";
 import LiveItem from "../components/Liveitem";
 import { useRef } from "react";
@@ -10,9 +10,9 @@ import { AiFillHeart } from "react-icons/ai";
 import { BsDiscord } from "react-icons/bs";
 
 export default function Live() {
-  const embed = useRef();
+  const embed = useRef<TwitchEmbedInstance>();
 
-  const handleReady = (e) => {
+  const handleReady = (e:  TwitchEmbedInstance) => {
     embed.current = e;
   };
   return (
@@ -26,12 +26,12 @@ export default function Live() {
           Dioscure - Offline
         </Button>
       </div>
-      <section className="flex justify-center m-auto md:flex-row">
+      <section className="flex flex-col justify-center m-auto md:flex-row">
         <TwitchEmbed
           channel="dioscure"
           autoplay={true}
           muted
-          width={1250}
+          width={"100%"}
           height={600}
           allowFullscreen
           withChat={false}
@@ -39,7 +39,7 @@ export default function Live() {
           hideControls={false}
           onVideoReady={handleReady}
         />
-        <TwitchChat channel="dioscure" height={600} width={300} darkMode />
+        <TwitchChat channel="dioscure" height={600} width={"100%"} darkMode />
       </section>
       <section className="md:flex md:justify-center md:gap-7 md:container md:m-auto md:py-10">
         <LiveItem href="/" icon={AiFillHeart} text="Follow">

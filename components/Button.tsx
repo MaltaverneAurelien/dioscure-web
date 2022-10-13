@@ -12,7 +12,7 @@ type Props = {
 const Button = (properties: Props) => {
   return (
     <>
-      <button className={"flex p-2 text-white font-montserrat " + properties.class} onClick={properties.onClick}>
+      <button className={"flex p-2 font-montserrat " + properties.class} onClick={properties.onClick}>
         {properties.icon !== undefined && (
           <properties.icon className={"mr-2 " + properties.iconClass} />
         )}

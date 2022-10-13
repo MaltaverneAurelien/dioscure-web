@@ -1,6 +1,6 @@
 import DropdownItem from "./DropdownItem";
 import { supabase } from "../utils/supabaseClient";
-import { CgProfile } from "react-icons/cg";
+import { HiOutlineCog } from "react-icons/hi";
 import { BiLogOut } from "react-icons/bi";
 
 type Props = {
@@ -9,7 +9,7 @@ type Props = {
 
 export default function Dropdown(properties: Props) {
   function showDropdown() {
-    return properties.show ? "opacity-100" : "opacity-0";
+    return properties.show ? "opacity-100" : "opacity-0 pointer-events-none";
   }
   async function signout() {
     const { error } = await supabase.auth.signOut();
@@ -24,9 +24,9 @@ export default function Dropdown(properties: Props) {
       >
         <DropdownItem
           type="href"
-          href="/profil"
-          icon={CgProfile}
-          text="Profil"
+          href="/dashboard"
+          icon={HiOutlineCog}
+          text="Dashboard"
         />
         <DropdownItem
           type="button"

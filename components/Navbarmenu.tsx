@@ -11,13 +11,13 @@ type Props = {
 
 export default function Navbarmenu(properties: Props) {
   function showNavbarMenu() {
-    return properties.show ? "opacity-100" : "opacity-0";
+    return properties.show ? "opacity-100" : "opacity-0 pointer-events-none";
   }
 
   return (
     <>
-      <a href="/" className="">
-        <img src="/DioscureTV_logo_mobile.png" className="w-12 md:hidden" />
+      <a href="/" className="md:hidden md:pointer-events-none">
+        <img src="/DioscureTV_logo_mobile.png" className="w-12" />
       </a>
       <ul className={"bg-dark_blue absolute mt-2 p-2 rounded-md top-16 left-3 z-10 md:hidden transition-all duration-300 " + showNavbarMenu()}>
         <NavItem href="/" icon={MdLiveTv} text="Live" />

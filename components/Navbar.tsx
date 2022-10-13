@@ -29,7 +29,7 @@ export default function Navbar() {
     <>
       <nav className="bg-dark_blue p-2 flex justify-between font-montserrat shadow-sm shadow-gray-600 md:items-center">
         <Button
-          class="text-2xl md:hidden"
+          class="text-white items-center text-2xl"
           icon={FaBars}
           onClick={handleClick}
         />
@@ -45,7 +45,7 @@ export default function Navbar() {
         </ul>
         {session === null && (
           <Button
-            class="rounded-full px-4 py-1 text-sm items-center whitespace-nowrap bg-twitch_purple hover:bg-violet-800"
+            class="rounded-full px-4 py-1 text-sm items-center whitespace-nowrap text-white bg-twitch_purple hover:bg-violet-800"
             iconClass="text-base"
             icon={BsTwitch}
             onClick={() => {
