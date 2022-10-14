@@ -1,10 +1,8 @@
-import { supabase } from "../utils/supabaseClient";
-import Button from "../components/Button";
+import TournamentHeader from "../components/TournamentHeader";
 import { useEffect, useState, useContext } from "react";
+import { supabase } from "../utils/supabaseClient";
 import SessionContext from "../context/context";
-// Import des react icons
-import { GoCalendar } from "react-icons/go";
-import { GiOfficeChair } from "react-icons/gi";
+import Button from "../components/Button";
 
 export default function Tournoi() {
   const [tournament, setTournament] = useState<any>(null);
@@ -23,13 +21,6 @@ export default function Tournoi() {
   function joinClick() {
     setShowJoinForm(true);
     setShowCreateForm(false);
-  }
-
-  async function fetchTournament() {
-    // TODO: Recuperer le dernier tournois qui n'est pas encore joué (date > mtn)
-    const { data } = await supabase.from("tournament").select("*");
-    if (!data) return;
-    setTournament(data[0]);
   }
 
   async function fetchTeam() {
@@ -95,39 +86,13 @@ export default function Tournoi() {
   }
 
   useEffect(() => {
-    fetchTournament();
-  }, []);
-
-  useEffect(() => {
     if (session && tournament) fetchTeam();
   }, [session, tournament]);
 
   return (
     <>
-      <section className="p-6 cursor-default md:p-8">
-        <span className="uppercase md:text-base">{tournament?.game}</span>
-        <h1 className="font-semibold italic text-lg md:text-2xl">
-          {tournament?.name}
-        </h1>
-        <div className="flex gap-4">
-          <span className="flex items-center gap-1">
-            <GoCalendar />
-            {tournament?.date}
-          </span>
-          <span className="flex items-center gap-1">
-            <GiOfficeChair />
-            {tournament?.max_team}
-          </span>
-        </div>
-      </section>
-      <section className="p-6 md:p-8">
-        <div className="flex gap-4 font-bold text-lg">
-          <span>Description</span>
-          <span>Equipes</span>
-          <span className="text-orange">{team?.name} #{team?.id}</span>
-        </div>
-        <span>{tournament?.description}</span>
-      </section>
+      <TournamentHeader />
+
       {team === null && (
         <section>
           <div className="flex justify-center gap-x-8">
@@ -150,7 +115,7 @@ export default function Tournoi() {
                 onSubmit={handleCreate}
                 className="flex flex-col gap-y-4 w-1/3"
               >
-                <label htmlFor="team_name">Team Name</label>
+                <label htmlFor="team_name">Nom d'équipe :</label>
                 <input
                   type="text"
                   name="team_name"
@@ -158,7 +123,7 @@ export default function Tournoi() {
                   value={teamName}
                   onChange={(e) => setTeamName(e.target.value)}
                 />
-                <button>Create Team</button>
+                <button>Crée</button>
               </form>
             )}
             {showJoinForm === true && (
@@ -166,7 +131,7 @@ export default function Tournoi() {
                 className="flex flex-col gap-y-4 w-1/3"
                 onSubmit={handleJoin}
               >
-                <label htmlFor="team_name">Team ID</label>
+                <label htmlFor="team_name">ID de l'équipe :</label>
                 <input
                   type="text"
                   name="team_id"
@@ -174,7 +139,7 @@ export default function Tournoi() {
                   value={teamId}
                   onChange={(e) => setTeamId(e.target.value)}
                 />
-                <button>Join Team</button>
+                <button>Rejoindre</button>
               </form>
             )}
           </div>

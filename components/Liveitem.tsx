@@ -12,7 +12,7 @@ export default function LiveItem(properties: Props) {
     <>
       <a
         href={properties.href}
-        className="flex items-center my-3 transition-all duration-700 text-white hover:bg-dark_blue"
+        className="flex items-center my-3 transition-all duration-700 hover:bg-dark_blue"
       >
         <properties.icon className="text-5xl p-2 bg-dark_blue" />
         <ul className="flex-col container ml-3">

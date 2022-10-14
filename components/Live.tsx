@@ -17,7 +17,7 @@ export default function Live() {
   };
   return (
     <>
-      <div className="bg-secondary_blue text-white md:flex md:justify-start md:mt-16">
+      <div className="bg-secondary_blue md:flex md:justify-start md:mt-16">
         <Button
           class="text-lg uppercase"
           icon={AiFillPlaySquare}

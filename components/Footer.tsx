@@ -23,13 +23,13 @@ export default function Footer() {
         </ul>
         <ul className="p-5 pt-2">
           <p className="text-yellow font-bold text-base md:text-2xl pb-2 md:pb-4">Product</p>
-          <li className="text-white text-xs md:text-md pb-2 font-semibold hover:text-orange cursor-pointer">
+          <li className="text-xs md:text-md pb-2 font-semibold hover:text-orange cursor-pointer">
             Préférence sur les cookies
           </li>
-          <li className="text-white text-xs md:text-md pb-2 font-semibold hover:text-orange cursor-pointer">
+          <li className="text-xs md:text-md pb-2 font-semibold hover:text-orange cursor-pointer">
             Me contacter
           </li>
-          <li className="text-white text-xs pb-2 font-semibold hover:text-orange cursor-pointer">
+          <li className="text-xs pb-2 font-semibold hover:text-orange cursor-pointer">
             © 2021-2022 DioscureTV. Tous droits réservés.
           </li>
         </ul>
