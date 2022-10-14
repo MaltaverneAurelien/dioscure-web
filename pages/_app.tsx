@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, []);
   return (
-    <div className="bg-no-repeat bg-center bg-cover aspect-video w-full bg-blob">
+    <div className="bg-no-repeat bg-center bg-cover aspect-video w-full bg-blob text-white">
       <SessionContext.Provider value={{ session, isAdmin }}>
         <Navbar />
         <Component {...pageProps} />

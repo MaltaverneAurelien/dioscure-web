@@ -23,7 +23,6 @@ export default function Navbar() {
   }
   function handleClick() {
     setNavbarmenu(!navbarmenu);
-    console.log(navbarmenu);
   }
   return (
     <>
