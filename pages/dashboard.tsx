@@ -33,7 +33,6 @@ export default function Dashboard() {
 
   return (
     <section className="p-5 h-96">
-
       <div className="flex gap-x-4 uppercase font-semibold">
         {tournaments.map((t) => (
           <div>
