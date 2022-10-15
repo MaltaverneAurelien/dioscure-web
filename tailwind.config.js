@@ -19,6 +19,7 @@ module.exports = {
         'yellow': '#FBAE3C',
         'orange': '#F17C53',
         'red_purple': '#96446E',
+        'dark_red_purple' : '#4C2338',
         'twitch_purple': '#9147FF'
       },
       backgroundImage: {
