@@ -2,8 +2,8 @@ import { supabase } from "../utils/supabaseClient";
 import TournamentItem from "./TournamentItem";
 import { useState, useEffect } from "react";
 // Import des react icons
-import { GoCalendar } from "react-icons/go";
 import { GiOfficeChair } from "react-icons/gi";
+import { GoCalendar } from "react-icons/go";
 
 export default function TournamentHeader() {
   const [tournament, setTournament] = useState<any>(null);
@@ -21,7 +21,7 @@ export default function TournamentHeader() {
 
   return (
     <>
-      <section className="p-6 cursor-default md:p-8">
+      <section className="p-6 cursor-default md:px-8 md:py-12">
         <span className="uppercase md:text-base">{tournament?.game}</span>
         <h1 className="font-semibold italic text-lg md:text-2xl">
           {tournament?.name}
@@ -37,13 +37,12 @@ export default function TournamentHeader() {
           </span>
         </div>
       </section>
-      <section className="p-6 md:p-8">
-        <ul className="flex gap-4 font-bold text-base md:text-lg">
-          <TournamentItem text="Description" />
-          <TournamentItem text="Equipes" />
-          <TournamentItem text="Inscription" />
+      <section className="px-2 md:px-10">
+        <ul className="flex gap-x-3 font-bold text-base md:text-lg md:gap-x-8">
+          <TournamentItem href="/tournament" text="Description" />
+          <TournamentItem href="/tournament/teams" text="Equipes" />
+          <TournamentItem href="/tournament/inscription" text="S'inscrire" />
         </ul>
-        <span className="text-sm md:text-lg">{tournament?.description}</span>
       </section>
     </>
   );

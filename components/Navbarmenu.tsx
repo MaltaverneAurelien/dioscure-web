@@ -21,7 +21,7 @@ export default function Navbarmenu(properties: Props) {
       </a>
       <ul className={"bg-dark_blue absolute mt-2 p-2 rounded-md top-16 left-3 z-10 md:hidden transition-all duration-300 " + showNavbarMenu()}>
         <NavItem href="/" icon={MdLiveTv} text="Live" />
-        <NavItem href="/tournoi" icon={BsTrophy} text="Tournoi" />
+        <NavItem href="/tournament" icon={BsTrophy} text="Tournoi" />
         <NavItem href="/coaching" icon={FaDumbbell} text="Coaching" />
         <NavItem href="/recompenses" icon={FiGift} text="Récompenses" />
       </ul>

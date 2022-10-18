@@ -11,7 +11,7 @@ type Props = {
 export default function DropdownItem(properties: Props) {
   return (
     <>
-      <li className={"py-1"}>
+      <li className="py-1">
         {properties.type === "href" && (
           <a
             href={properties.href}

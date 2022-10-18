@@ -33,15 +33,16 @@ export default function CreateTournament() {
           Quel est le nom de votre tournoi ?
         </label>
         <input
-          className="text-dark_blue rounded-md p-1.5 shadow-lg focus:outline-none focus:ring focus:ring-red_purple"
+          className="text-dark_blue rounded-md p-1.5 font-medium shadow-lg focus:outline-none focus:ring focus:ring-red_purple"
           type="text"
           name="name"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          placeholder="Nom du tournoi"
         />
         <label className="font-semibold">Quand commence-t-il ?</label>
         <input
-          className="text-dark_blue rounded-md p-1.5 shadow-lg focus:outline-none focus:ring focus:ring-red_purple"
+          className="text-dark_blue rounded-md p-1.5 font-medium shadow-lg focus:outline-none focus:ring focus:ring-red_purple"
           type="date"
           name="date"
           id=""
@@ -50,23 +51,25 @@ export default function CreateTournament() {
         />
         <label className="font-semibold">Ajoutez une description ?</label>
         <textarea
-          className="text-dark_blue rounded-md p-1.5 shadow-lg focus:outline-none focus:ring focus:ring-red_purple"
+          className="text-dark_blue rounded-md p-1.5 font-medium shadow-lg focus:outline-none focus:ring focus:ring-red_purple focus:h-28"
           name="description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          placeholder="Description du tournoi"
         ></textarea>
         <label className="font-semibold">Ajoutez des règles ?</label>
         <textarea
-          className="text-dark_blue rounded-md p-1.5 shadow-lg focus:outline-none focus:ring focus:ring-red_purple"
+          className="text-dark_blue rounded-md p-1.5 font-medium shadow-lg focus:outline-none focus:ring focus:ring-red_purple focus:h-28"
           name="rules"
           value={rules}
           onChange={(e) => setRules(e.target.value)}
+          placeholder="Règles du tournoi"
         ></textarea>
         <label className="font-semibold">
           Combien de joueurs ou d’équipes voulez-vous ?
         </label>
         <input
-          className="text-dark_blue rounded-md p-1.5 shadow-lg focus:outline-none focus:ring focus:ring-red_purple"
+          className="text-dark_blue rounded-md p-1.5 font-medium shadow-lg focus:outline-none focus:ring focus:ring-red_purple"
           type="number"
           name="max_team"
           id=""
@@ -77,12 +80,13 @@ export default function CreateTournament() {
           Quel est le jeu de votre tournoi ?
         </label>
         <input
-          className="text-dark_blue rounded-md p-1.5 shadow-lg focus:outline-none focus:ring focus:ring-red_purple"
+          className="text-dark_blue rounded-md p-1.5 font-medium shadow-lg focus:outline-none focus:ring focus:ring-red_purple"
           type="text"
           name="game"
           id=""
           value={game}
           onChange={(e) => setGame(e.target.value)}
+          placeholder="Jeux vidéos"
         />
         <div className="flex justify-center mt-6">
           <Button class="rounded-lg text-base w-20 justify-center bg-red_purple hover:bg-dark_red_purple md:w-28 md:text-lg">

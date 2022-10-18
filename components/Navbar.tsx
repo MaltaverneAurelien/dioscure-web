@@ -38,7 +38,7 @@ export default function Navbar() {
         </a>
         <ul className="hidden md:flex md:items-center md:gap-4 md:ml-8 md:mr-auto">
           <NavItem href="/" icon={MdLiveTv} text="Live" />
-          <NavItem href="/tournoi" icon={BsTrophy} text="Tournoi" />
+          <NavItem href="/tournament" icon={BsTrophy} text="Tournoi" />
           <NavItem href="/coaching" icon={FaDumbbell} text="Coaching" />
           <NavItem href="/recompenses" icon={FiGift} text="Récompenses" />
         </ul>
