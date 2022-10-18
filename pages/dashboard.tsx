@@ -20,7 +20,7 @@ export default function Dashboard() {
       ) 
     `);
 
-    console.log(data)
+    console.log(data);
 
     if (!data) return;
 
@@ -32,18 +32,22 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <section className="p-5 h-96">
+    <section className="p-5">
       <div className="flex gap-x-4 uppercase font-semibold">
         {tournaments.map((t) => (
           <div>
-            <a href={"/tournament/" + t.id} key={t.id}>{t.name}</a>
+            <a href={"/tournament/" + t.id} key={t.id}>
+              {t.name}
+            </a>
             <ul>
               {t.teams.map((team: any) => (
                 <li key={team.id} className="ml-8">
                   <p>{team.name}</p>
                   <ul>
                     {team.members.map((m: any) => (
-                      <li key={m.id+team.id} className="ml-8">{m.user}</li>
+                      <li key={m.id + team.id} className="ml-8">
+                        {m.user}
+                      </li>
                     ))}
                   </ul>
                 </li>
@@ -52,9 +56,11 @@ export default function Dashboard() {
           </div>
         ))}
       </div>
-      <a href="/tournament/create" className="bg-dark_blue px-4 py-1 rounded">
-        Creer un tournoi
-      </a>
+      <div className="my-10">
+        <a href="/tournament/create" className="bg-dark_blue px-4 py-2 rounded">
+          Creer un tournoi
+        </a>
+      </div>
     </section>
   );
 }

@@ -49,6 +49,15 @@ export default function Tournoi() {
       <section className="p-6">
         <span className="text-sm md:text-lg">{tournament?.description}</span>
       </section>
+      <section className="p-6">
+        <h2 className="text-sm md:text-lg">Mes réseaux</h2>
+        <p>Twitch : https://www.twitch.tv/dioscure</p>
+        <p>Discord : https://discord.gg/9vSKPJUTN8</p>
+        <p>Twitter : https://twitter.com/Dioscure_</p>
+      </section>
+      <section className="p-6">
+        <span className="text-sm md:text-lg">{tournament?.rules}</span>
+      </section>
     </>
   );
 }

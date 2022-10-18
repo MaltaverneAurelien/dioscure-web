@@ -39,7 +39,7 @@ export default function Teams() {
           <ul className="flex flex-wrap">
             {t.teams.map((team: any) => (
               <li key={team.id} className="flex flex-col rounded-2xl m-4 border bg-dark_blue">
-                <p className="p-2 font-semibold">Equipe : {team.name}</p>
+                <p className="p-2 font-semibold">Equipe : {team.name}#{team.id}</p>
                 <ul className="flex gap-x-4 p-2">
                   {team.members.map((m: any) => (
                     <li key={m.id + team.id} className="flex flex-col">

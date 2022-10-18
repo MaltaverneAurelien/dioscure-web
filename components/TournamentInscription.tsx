@@ -60,6 +60,13 @@ export default function TournamentInscription() {
     setTeam(team);
   }
 
+  async function leaveClick() {
+    const { data: team } = await supabase
+      .from("team")
+      .delete()
+      .eq("id", teamId);
+  }
+
   async function fetchTournament() {
     // TODO: Recuperer le dernier tournois qui n'est pas encore joué (date > mtn)
     const { data } = await supabase.from("tournament").select("*");
@@ -148,7 +155,7 @@ export default function TournamentInscription() {
           <div className="flex justify-center md:gap-x-8 md:mt-6">
             <Button
               class="rounded-lg text-base w-20 justify-center bg-red_purple hover:bg-dark_red_purple md:w-28 md:text-lg"
-              onClick={createClick}
+              onClick={leaveClick}
             >
               Quitter
             </Button>
