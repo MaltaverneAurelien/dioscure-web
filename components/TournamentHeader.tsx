@@ -64,10 +64,10 @@ export default function TournamentHeader() {
           </span>
         </div>
       </section>
-      <section className="px-2 md:px-10">
+      <section className="bg-dark_blue px-2 bg-opacity-50 md:py-2 md:px-10">
         <ul className="flex gap-x-3 font-bold text-base md:text-lg md:gap-x-8">
           <TournamentItem href="/tournament" text="Description" />
-          <TournamentItem href="/tournament/teams" text="Equipes" />
+          <TournamentItem href="/tournament/teams" text="Participants" />
           {team === null && (
             <TournamentItem href="/tournament/inscription" text="S'inscrire" />
           )}

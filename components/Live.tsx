@@ -1,6 +1,11 @@
-import { TwitchEmbed, TwitchChat, TwitchEmbedInstance } from "react-twitch-embed";
-import Button from "../components/Button";
+import { BrowserView, MobileView } from "react-device-detect";
+import {
+  TwitchEmbed,
+  TwitchChat,
+  TwitchEmbedInstance,
+} from "react-twitch-embed";
 import LiveItem from "../components/Liveitem";
+import Button from "../components/Button";
 import { useRef } from "react";
 // Import des react icons
 import { AiFillPlaySquare, AiFillStar } from "react-icons/ai";
@@ -12,35 +17,55 @@ import { BsDiscord } from "react-icons/bs";
 export default function Live() {
   const embed = useRef<TwitchEmbedInstance>();
 
-  const handleReady = (e:  TwitchEmbedInstance) => {
+  const handleReady = (e: TwitchEmbedInstance) => {
     embed.current = e;
   };
+
   return (
     <>
-      <div className="bg-secondary_blue md:flex md:justify-start md:mt-16">
+      <div className="bg-secondary_blue container m-auto">
         <Button
-          class="text-lg uppercase"
+          class="text-lg uppercase items-center"
           icon={AiFillPlaySquare}
           iconClass="text-2xl"
         >
-          Dioscure - Offline
+          Twitch.TV - Dioscure
         </Button>
       </div>
-      <section className="flex flex-col justify-center m-auto md:flex-row">
-        <TwitchEmbed
-          channel="dioscure"
-          autoplay={true}
-          muted
-          width={"100%"}
-          height={600}
-          allowFullscreen
-          withChat={false}
-          darkMode
-          hideControls={false}
-          onVideoReady={handleReady}
-        />
-        <TwitchChat channel="dioscure" height={600} width={"100%"} darkMode />
-      </section>
+      <BrowserView>
+        <section className="flex justify-center">
+          <TwitchEmbed
+            channel="dioscure"
+            allowFullscreen
+            autoplay={true}
+            muted={true}
+            width={1050}
+            height={650}
+            withChat={false}
+            darkMode={true}
+            hideControls={false}
+            onVideoReady={handleReady}
+          />
+          <TwitchChat channel="dioscure" width={350} height={650} darkMode />
+        </section>
+      </BrowserView>
+      <MobileView>
+        <section className="flex flex-col">
+          <TwitchEmbed
+            channel="dioscure"
+            autoplay={true}
+            muted
+            width={500}
+            height={600}
+            allowFullscreen
+            withChat={false}
+            darkMode
+            hideControls={false}
+            onVideoReady={handleReady}
+          />
+          <TwitchChat channel="dioscure" height={600} width={100} darkMode />
+        </section>
+      </MobileView>
       <section className="md:flex md:justify-center md:gap-7 md:container md:m-auto md:py-10">
         <LiveItem href="/" icon={AiFillHeart} text="Follow">
           Suis la chaîne pour ne rien manquer

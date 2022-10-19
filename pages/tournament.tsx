@@ -2,6 +2,8 @@ import TournamentHeader from "../components/TournamentHeader";
 import { useEffect, useState, useContext } from "react";
 import { supabase } from "../utils/supabaseClient";
 import SessionContext from "../context/context";
+// Import des react icons
+import { BsTwitch } from "react-icons/bs";
 
 export default function Tournoi() {
   const { session } = useContext(SessionContext);
@@ -51,7 +53,7 @@ export default function Tournoi() {
       </section>
       <section className="p-6">
         <h2 className="text-sm md:text-lg">Mes réseaux</h2>
-        <p>Twitch : https://www.twitch.tv/dioscure</p>
+        <p><BsTwitch />Twitch : https://www.twitch.tv/dioscure</p>
         <p>Discord : https://discord.gg/9vSKPJUTN8</p>
         <p>Twitter : https://twitter.com/Dioscure_</p>
       </section>

@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { supabase } from "../utils/supabaseClient";
 import SessionContext from "../context/context";
 import Button from "../components/Button";
+import { IoFileTray } from "react-icons/io5";
 
 export default function TournamentInscription() {
   const { session } = useContext(SessionContext);
@@ -61,10 +62,20 @@ export default function TournamentInscription() {
   }
 
   async function leaveClick() {
-    const { data: team } = await supabase
-      .from("team")
+    await supabase
+      .from("team_users")
       .delete()
-      .eq("id", teamId);
+      .eq("team", team.id)
+      .eq("users", session?.user.id);
+
+    const { data } = await supabase
+      .from("team_users")
+      .select()
+      .eq("team", team.id);
+    
+    if (data?.length === 0) {
+      await supabase.from("team").delete().eq("id", team.id);
+    }
   }
 
   async function fetchTournament() {
@@ -73,6 +84,30 @@ export default function TournamentInscription() {
     if (!data) return;
     setTournament(data[0]);
   }
+
+  async function fetchTeam() {
+    const { data } = await supabase
+      .from("team_users")
+      .select(
+        `
+        *,
+        team (
+          *
+        )
+      `
+      )
+      .eq("team.tournament", tournament.id)
+      .eq("users", session?.user.id)
+      .single();
+
+    if (!data) return;
+
+    setTeam(data.team);
+  }
+
+  useEffect(() => {
+    if (session && tournament) fetchTeam();
+  }, [session, tournament]);
 
   useEffect(() => {
     fetchTournament();
@@ -152,7 +187,8 @@ export default function TournamentInscription() {
       )}
       {team !== null && (
         <section>
-          <div className="flex justify-center md:gap-x-8 md:mt-6">
+          <p className="flex justify-center font-semibold">Mon équipe :</p>
+          <div className="flex justify-center md:gap-x-8 md:my-8">
             <Button
               class="rounded-lg text-base w-20 justify-center bg-red_purple hover:bg-dark_red_purple md:w-28 md:text-lg"
               onClick={leaveClick}
