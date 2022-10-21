@@ -1,9 +1,11 @@
+import TournamentSocials from "../components/TournamentSocials";
 import TournamentHeader from "../components/TournamentHeader";
 import { useEffect, useState, useContext } from "react";
 import { supabase } from "../utils/supabaseClient";
 import SessionContext from "../context/context";
 // Import des react icons
-import { BsTwitch } from "react-icons/bs";
+import { BsTwitch, BsTwitter } from "react-icons/bs";
+import { FaDiscord } from "react-icons/fa";
 
 export default function Tournoi() {
   const { session } = useContext(SessionContext);
@@ -52,10 +54,24 @@ export default function Tournoi() {
         <span className="text-sm md:text-lg">{tournament?.description}</span>
       </section>
       <section className="p-6">
-        <h2 className="text-sm md:text-lg">Mes réseaux</h2>
-        <p><BsTwitch />Twitch : https://www.twitch.tv/dioscure</p>
-        <p>Discord : https://discord.gg/9vSKPJUTN8</p>
-        <p>Twitter : https://twitter.com/Dioscure_</p>
+        <h2 className="text-sm md:text-lg">Mes réseaux :</h2>
+        <div className="py-3">
+          <TournamentSocials
+            href="https://discord.gg/9vSKPJUTN8"
+            icon={FaDiscord}
+            text="Rejoins le Discord"
+          />
+          <TournamentSocials
+            href="https://www.twitch.tv/dioscure"
+            icon={BsTwitch}
+            text="Mon Twitch"
+          />
+          <TournamentSocials
+            href="https://twitter.com/Dioscure_"
+            icon={BsTwitter}
+            text="Mon Twitter"
+          />
+        </div>
       </section>
       <section className="p-6">
         <span className="text-sm md:text-lg">{tournament?.rules}</span>

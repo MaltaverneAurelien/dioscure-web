@@ -15,7 +15,7 @@ export default function DropdownItem(properties: Props) {
         {properties.type === "href" && (
           <a
             href={properties.href}
-            className="flex items-center px-4 py-2 first:text-sm md:text-base"
+            className="flex items-center px-4 py-2 first:text-sm md:text-base md:hover:text-yellow"
           >
             <properties.icon className="float-left mr-2 text-base md:text-lg" />
             {properties.text}
@@ -25,7 +25,7 @@ export default function DropdownItem(properties: Props) {
           <button
             type="button"
             onClick={properties.button}
-            className="flex items-center px-4 py-2 text-sm md:text-base"
+            className="flex items-center px-4 py-2 text-sm md:text-base md:hover:text-yellow"
           >
             <properties.icon className="float-left mr-2 text-base md:text-lg" />
             {properties.text}

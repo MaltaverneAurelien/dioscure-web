@@ -27,7 +27,7 @@ export default function NavItem(properties: Props) {
       <a
         href={properties.href}
         className={
-          "md:border-2 md:px-2 md:py-2 md:border-transparent md:uppercase md:hover:border-b-yellow md:hover:text-yellow " +
+          "transition-all duration-300 md:border-2 md:px-2 md:py-2 md:border-transparent md:uppercase md:hover:border-b-yellow md:hover:text-yellow " +
           activeBorder()
         }
       >

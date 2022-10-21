@@ -11,7 +11,7 @@ export default function FooterItem(properties: Props) {
     <>
       <a
         href={properties.href}
-        className="text-2xl cursor-pointer hover:text-orange"
+        className="text-xl cursor-pointer hover:text-orange hover:scale-150"
       >
         <properties.icon />
       </a>
